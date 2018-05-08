@@ -37,14 +37,32 @@
 
 @implementation JHCountdownButton
 
++ (instancetype)buttonWithType:(UIButtonType)buttonType{
+    JHCountdownButton *button = [super buttonWithType:buttonType];
+    [button setup];
+    return button;
+}
+
+- (void)setup{
+    _defaultTitle = @"获取验证码";
+    _countdownFinishTitle = @"重新发送";
+    _defaultTitleColor = [UIColor blackColor];
+    _countdownTitleColor = [UIColor blackColor];
+    _countdownFinishTitleColor = [UIColor blackColor];
+    if (!self.currentTitle) {
+        [self setTitle:_defaultTitle forState:0];
+    }
+    if (!self.currentTitleColor) {
+        [self setTitleColor:_defaultTitleColor forState:0];
+    }
+}
+
 - (void)setCountdownNumber:(NSUInteger)countdownNumber{
     _count = _initCount =_countdownNumber = countdownNumber;
-    [self setTitle:_countdownFinishTitle?:@"重新发送" forState:0];
 }
 
 - (void)setCountdownFinishTitle:(NSString *)countdownFinishTitle{
     _countdownFinishTitle = countdownFinishTitle;
-    [self setTitle:_countdownFinishTitle?:@"重新发送" forState:0];
 }
 
 - (NSTimer *)timer{
@@ -54,21 +72,20 @@
     return _timer;
 }
 
-- (void)jh_setTitle
-{
+- (void)jh_setTitle{
     NSString *title = [NSString stringWithFormat:@"%@%@%@",_prefixTitle?:@"",@(_count),_subfixTitle?:@""];
     [self setTitle:title forState:0];
 }
 
-- (void)jh_coundDown
-{
+- (void)jh_coundDown{
     _count--;
     if (_count > 0) {
         [self jh_setTitle];
     }else{
         [self invalidateTimer];
         self.userInteractionEnabled = YES;
-        [self setTitle:_countdownFinishTitle?:@"重新发送" forState:0];
+        [self setTitle:_countdownFinishTitle forState:0];
+        [self setTitleColor:_countdownFinishTitleColor forState:0];
     }
 }
 
@@ -78,6 +95,7 @@
     }
     [self jh_setTitle];
     self.userInteractionEnabled = NO;
+    [self setTitleColor:_countdownTitleColor forState:0];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
@@ -89,6 +107,12 @@
 - (void)invalidateTimer{
     [_timer invalidate];
     _timer = nil;
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview{
+    if (!newSuperview) {
+        [self invalidateTimer];
+    }
 }
 
 @end
