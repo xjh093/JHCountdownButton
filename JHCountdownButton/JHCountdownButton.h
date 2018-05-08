@@ -36,11 +36,18 @@
 @property (nonatomic,  assign) NSUInteger countdownNumber;
 /// Subfix.
 @property (nonatomic,    copy) NSString *subfixTitle;
-/// Defult is ‘重新发送’.
+/// Default is 'blackColor'
+@property (nonatomic,  strong) UIColor *countdownTitleColor;
+/// Default is '获取验证码'
+@property (nonatomic,    copy) NSString *defaultTitle;
+/// Default is 'blackColor'
+@property (nonatomic,  strong) UIColor *defaultTitleColor;
+/// Default is ‘重新发送’.
 @property (nonatomic,    copy) NSString *countdownFinishTitle;
+/// Default is 'blackColor'
+@property (nonatomic,  strong) UIColor *countdownFinishTitleColor;
 
 - (void)fireTimer;
 - (void)reFireTimer;
-- (void)invalidateTimer;
 
 @end
