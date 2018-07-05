@@ -38,6 +38,8 @@
 @property (nonatomic,    copy) NSString *subfixTitle;
 /// Default is 'blackColor'
 @property (nonatomic,  strong) UIColor *countdownTitleColor;
+/// Default is nil.
+@property (nonatomic,  strong) UIColor *countdownBackgroundColor;
 /// Default is '获取验证码'
 @property (nonatomic,    copy) NSString *defaultTitle;
 /// Default is 'blackColor'
