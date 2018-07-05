@@ -33,6 +33,7 @@
 @property (nonatomic,  strong) NSTimer *timer;
 @property (nonatomic,  assign) NSUInteger  count;
 @property (nonatomic,  assign) NSUInteger  initCount;
+@property (nonatomic,  strong) UIColor *normalBackgroundColor;
 @end
 
 @implementation JHCountdownButton
@@ -82,10 +83,12 @@
     if (_count > 0) {
         [self jh_setTitle];
     }else{
+        _count = _initCount;
         [self invalidateTimer];
         self.userInteractionEnabled = YES;
         [self setTitle:_countdownFinishTitle forState:0];
         [self setTitleColor:_countdownFinishTitleColor forState:0];
+        self.backgroundColor = _normalBackgroundColor;
     }
 }
 
@@ -96,11 +99,16 @@
     [self jh_setTitle];
     self.userInteractionEnabled = NO;
     [self setTitleColor:_countdownTitleColor forState:0];
+    if (_countdownBackgroundColor) {
+        _normalBackgroundColor = self.backgroundColor;
+        self.backgroundColor = _countdownBackgroundColor;
+    }
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)reFireTimer{
     _count = _initCount;
+    [self invalidateTimer];
     [self fireTimer];
 }
 
