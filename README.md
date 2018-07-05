@@ -3,6 +3,8 @@ A button for countdown & 倒计时按钮
 
 ## Logs & 更新日志
 
+### 3.add property 'countdownBackgroundColor'.(2018-7-5)
+
 ### 2.update. (2018-5-8)
 
 ### 1.upload. (2018-4-19)
@@ -17,6 +19,8 @@ A button for countdown & 倒计时按钮
 @property (nonatomic,    copy) NSString *subfixTitle;
 /// Default is 'blackColor'
 @property (nonatomic,  strong) UIColor *countdownTitleColor;
+/// Default is nil.
+@property (nonatomic,  strong) UIColor *countdownBackgroundColor;
 /// Default is '获取验证码'
 @property (nonatomic,    copy) NSString *defaultTitle;
 /// Default is 'blackColor'
