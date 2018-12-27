@@ -1,7 +1,17 @@
 # JHCountdownButton
-A button for countdown & 倒计时按钮
+A button for countdown
+- 倒计时按钮
 
-## Logs & 更新日志
+---
+
+# What
+![image](https://github.com/xjh093/JHCountdownButton/blob/master/img/01.png)
+
+![image](https://github.com/xjh093/JHCountdownButton/blob/master/img/02.png)
+
+---
+
+# Logs
 
 ### 3.add property 'countdownBackgroundColor'.(2018-7-5)
 
@@ -35,6 +45,4 @@ A button for countdown & 倒计时按钮
 
 ```
 
-![image](https://github.com/xjh093/JHCountdownButton/blob/master/img/01.png)
 
-![image](https://github.com/xjh093/JHCountdownButton/blob/master/img/02.png)
