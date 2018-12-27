@@ -12,13 +12,18 @@ A button for countdown
 ---
 
 # Logs
+### 2018-7-5
+- add property 'countdownBackgroundColor'.
 
-### 3.add property 'countdownBackgroundColor'.(2018-7-5)
+### 2018-5-8
+- update.
 
-### 2.update. (2018-5-8)
+### 2018-4-19
+- upload.
 
-### 1.upload. (2018-4-19)
+---
 
+# API
 .h
 ```
 /// Prefix.
