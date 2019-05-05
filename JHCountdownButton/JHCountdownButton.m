@@ -66,6 +66,16 @@
     _countdownFinishTitle = countdownFinishTitle;
 }
 
+- (void)setDefaultTitle:(NSString *)defaultTitle{
+    _defaultTitle = defaultTitle;
+    [self setTitle:_defaultTitle forState:0];
+}
+
+- (void)setDefaultTitleColor:(UIColor *)defaultTitleColor{
+    _defaultTitleColor = defaultTitleColor;
+    [self setTitleColor:_defaultTitleColor forState:0];
+}
+
 - (NSTimer *)timer{
     if (!_timer) {
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(jh_coundDown) userInfo:nil repeats:YES];
